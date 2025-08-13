@@ -16,7 +16,7 @@ CLIENT_ID = st.secrets["gdrive"]["client_id"]
 CLIENT_SECRET = st.secrets["gdrive"]["client_secret"]
 REDIRECT_URI = st.secrets["gdrive"]["redirect_uri"]
 
-def get_credentials():
+def authenticate_gdrive():
     creds = None
     if os.path.exists("token.json"):
         creds = Credentials.from_authorized_user_file("token.json", SCOPES)
@@ -24,18 +24,19 @@ def get_credentials():
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
-            flow = InstalledAppFlow.from_client_config(
-                {
-                    "installed": {
-                        "client_id": CLIENT_ID,
-                        "client_secret": CLIENT_SECRET,
-                        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-                        "token_uri": "https://oauth2.googleapis.com/token",
-                        "redirect_uris": [REDIRECT_URI]
-                    }
-                },
-                SCOPES
-            )
+            creds_dict = {
+                "installed": {
+                    "client_id": st.secrets["gdrive"]["client_id"],
+                    "client_secret": st.secrets["gdrive"]["client_secret"],
+                    "redirect_uris": [st.secrets["gdrive"]["redirect_uri"]],
+                    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                    "token_uri": "https://oauth2.googleapis.com/token"
+                }
+            }
+            with open("temp_credentials.json", "w") as f:
+                json.dump(creds_dict, f)
+
+            flow = InstalledAppFlow.from_client_secrets_file("temp_credentials.json", SCOPES)
             creds = flow.run_local_server(port=8080)
         with open("token.json", "w") as token:
             token.write(creds.to_json())
@@ -76,7 +77,7 @@ def main():
     st.title("Context-Aware Cloud Optimizer for Google Drive")
     st.write("Analyze your Google Drive storage and get cleanup recommendations.")
 
-    creds = get_credentials()
+    creds = authenticate_gdrive()
     service = build("drive", "v3", credentials=creds)
 
     usage, limit = get_storage_usage(service)
