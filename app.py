@@ -28,6 +28,7 @@ def authenticate_gdrive():
         with open('token.json', 'w') as token:
             token.write(creds.to_json())
     return creds
+    return creds
 
 def fetch_drive_files(service):
     results = service.files().list(
