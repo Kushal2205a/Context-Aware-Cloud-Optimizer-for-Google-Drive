@@ -1,2 +1,5 @@
 .venv/
 drive_files.csv
+token.json
+credentials.json
+.streamlit/st.secrets
