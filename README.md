@@ -187,8 +187,8 @@ recommendations = analyzer.generate_recommendations()
 
 ```
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
-│   Web Frontend  │────│  Flask Backend   │────│  Google Drive   │
-│   (HTML/CSS/JS) │    │   (Python/API)   │    │      API        │
+│   Frontend      │────│  Flask Backend   │────│  Google Drive   │
+│ (Streamlit lib) │    │   (Python/API)   │    │      API        │
 └─────────────────┘    └──────────────────┘    └─────────────────┘
          │                       │                       │
          └───────────────────────┼───────────────────────┘
@@ -203,8 +203,7 @@ recommendations = analyzer.generate_recommendations()
 
 - **Backend**: Python 3.8+, Flask 2.0+
 - **Authentication**: OAuth 2.0, Google API Client
-- **Frontend**: HTML5, CSS3, JavaScript ES6+
-- **Data Visualization**: Chart.js
+- **Frontend**: Streamlit library
 - **API Integration**: Google Drive API v3
 
 
