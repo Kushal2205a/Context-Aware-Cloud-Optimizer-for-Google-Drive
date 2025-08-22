@@ -8,19 +8,6 @@
 
 > An intelligent storage optimization tool that analyzes Google Drive usage patterns and provides context-aware recommendations for efficient space management.
 
-## Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Screenshots](#screenshots)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [API Reference](#api-reference)
-- [Architecture](#architecture)
-- [Contributing](#contributing)
-- [License](#license)
-
 ## Overview
 
 The Google Drive Context-Aware Optimizer is a Flask-based web application that integrates with the Google Drive API to perform comprehensive storage analysis. It employs intelligent algorithms to categorize files, identify optimization opportunities, and provide actionable insights for storage management.
