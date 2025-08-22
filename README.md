@@ -45,22 +45,22 @@ The Google Drive Context-Aware Optimizer is a Flask-based web application that i
 ## Screenshots
 
 ### Storage Analysis Dashboard
-![Storage Dashboard][images/GC.png]
+![Storage Dashboard](images/GC.png)
 
 *Real-time storage usage overview with quota management*
 
 ### File Type Distribution
-![File Type Analysis][images/GC3.png]
+![File Type Analysis](images/GC3.png)
 
 *Visual breakdown of storage consumption across different file types*
 
 ### Context-Aware Recommendations
-![Smart Recommendations][images/GC4.png]
+![Smart Recommendations](images/GC4.png)
 
 *Intelligent suggestions for storage optimization based on usage patterns*
 
 ### Duplicate Files Management
-![Duplicate Detection][images/GC1.png]
+![Duplicate Detection](images/GC1.png)
 
 *Comprehensive duplicate file detection with detailed metadata*
 
